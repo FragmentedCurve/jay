@@ -1,7 +1,0 @@
-bob MyClass.class - все MyClass во всех пакетах, доступных по classpath, только исходники, на .class говорить что он просто есть
-bob herschel.hifi.tools.MyClass - собственно говорит что класс есть, удобно для скриптов
-bob MyClass/isEnabled* - все методы с префиксом (реги) isEnabled во всех MyClass. вообще всё может искаться по регам
-bob @my_annotation [MyClass] - все аннотации my_annotation из класса MyClass (если не указано, то вообще по проекту)
-bob herschel.hifi.tools.MyClass.isEnabled()/@my_* - все аннотатции с префиксом my_ из конкретного метода
-bob "This is a big thing!" ищет сию строку во всех коментах ко всем классам
-bob MyCass/"The main purpose is to convert" - ищет только в класах MyClass
