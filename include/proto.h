@@ -113,11 +113,7 @@ void tree_echo (int n_trip, char *S) ;
 inline void tree_mkpos (int N) ;
 void call_tree (char * f_name, int n_trip) ;
 
-/*** ./usage.cxx ***/
-void usage () ;
-
 int kinds (char * m_kinds) ;
-int bob_options (DArray * d_opts, int & i) ;
 
 /*** ./sb_prnmame.cxx **/
 int sb_prname (char *arg) ;
