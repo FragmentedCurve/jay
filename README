@@ -1,0 +1,87 @@
+
+
+
+		SILENT BOB
+
+Main ideas of SilentBob
+
+Preprocessor, which is described above, is called "THE_TT" and placed in
+appropriate file...
+Actually it's quite simple: it removes all "extras" from C/C++ source. It
+removes/minimizes all variants of C code notations, removes all extra space
+symbols and comments, adds additional spaces where it's necessary (for
+example, before brackets). THE_TT allows to take some part of code and
+exactly (about 99%) tell you what is it, using minimum of checks.
+All it works quite fast (for example, 1.6 GHz processor, 256 Mb of RAM - works
+excellent), which allows to do some interesting things. As far as I know,
+such kind of code usually is written only to compilers and isn't used for
+other things, what, as for my view, isn't good enough.
+
+Next SilentBob's level - "t_op", "what_is_this" and alike functions. First of
+them simply allows to enumerate all "operators" of source code, second -
+checks, what kind of operator do we met. Actually, "what_is_this" isn't
+quite enough for all, so some additional functions exists... Now, THE_TT and
+t_op are two separate parts of program. In future I plan to unite them...
+
+    HOW to USE:
+Files for SilentBob are given as parameters or as file with filelist (every file is in the new line)
+and option -L, i.e. -L <file with filelist>.
+
+ -- Creating filelist:
+$ bob [--cxx | --perl | --python | --ruby | --php | --go | --lua] -f
+
+ -- Creating file ./tags
+$ bob [<files>] [-j N] -c
+*  templates are not indexed
+* Supported languages : C/C++, Perl, Python, Ruby, PHP, Java, google Go, Lua
+
+Created tag file is supported only by Vim, but you may use directly SilentBob to work with it.
+After file creation ./tags You can come in Vi and "jump" on tags commands :tag :tn :tp
+
+ -- Creating ./call_tags file
+$ bob [<files>] --call-tags
+It creates tags file. But instead of start points of function it will be written where they are called.
+You may rename it to ./tags, run Vi and go throw _functions_call_points with a plain usual command
+	:tag
+* for C/C++ only
+
+ -- Call-trees
+./call_tags needed.
+
+  -- Simple
+$ bob <the name of function> [--depth N]
+Where N is the maximum level (for huge projects).
+
+  -- The reverse
+$ bob -u <the name of function> [--depth N]
+Сorrectness for C++ code functions is not guaranteed.
+ 
+  -- Search in operators :
+$ bob <filelist> --cgrep op1,op2...
+Where op1 and op2 are required parts of _one operator_. I.e. to search the place of checking T variable
+you may use, for example:
+$ bob -L ./cfiles --cgrep if,T
+Using -ts option (it may be used at once c>./tags) you may get tags-formatted output.
+
+  -- Text search :
+$ bob <filelist> --grep <string>
+
+  -- Change string
+$ bob <filelist> --replace <from>,<to>
+Change <from> to <to> in all occurences from <filelist>  
+
+ -- Access to tags
+$ bob --tags <function1> <function2> ... <functionN>
+Where function1..functionN are needed symbol from ./tags file
+The code if all listed functions will be reflected after this call
+
+And also there are many another tasty things, not listed here.
+
+                Other information
+We need responses about working with Bob on another platforms.
+Any thoughts on:
+    Oleg Puchinin <graycardinalster@gmail.com>
+
+Thanks for your attention.
+Oleg.
+

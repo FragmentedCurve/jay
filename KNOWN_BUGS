@@ -1,0 +1,4 @@
+
+27.03.12 silentbob --file does not work (segfault on def_test)
+<fixed> 30.03.12 silentbob -c segfault for apache2. Error in perl module !
+
